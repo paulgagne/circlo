@@ -1,4 +1,3 @@
-
 /*
  * Auteur     : Belkacem Ouarab, Pierre Gagnon & Paul Gagné
  * No étudiant: 910161950
@@ -25,7 +24,7 @@ List userInput  = new List();
 
 void main() {
   
-  setSyntax();
+  setSyntax(); 
   setInput();
   buildOutputFunction();
 
