@@ -1,0 +1,5 @@
+name:  sio6014_circlo
+description:  A sample application
+
+#dependencies:
+#  unittest: { sdk: unittest }

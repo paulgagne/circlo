@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sio6014_circlo</title>
+    <link rel="stylesheet" href="css/sio6014_circlo.css">
+  </head>
+  <body>
+  
+    <br/>
+  
+    <h1>Circlo</h1>
+    
+    <br/>
+    <h2>Simulation de circuits logiques</h2>
+    <br/>
+ 
+    <table id="doorsAndVar">
+    </table>
+    <br/>
+
+    <table id="delimiters">
+    </table>
+ 
+    
+    <p>
+    <button id="erase">Effacer</button>
+    <button id="restart">Recommencer</button>
+    <button id="exec">Executer</button>
+    </p>
+    
+   
+    <table>
+     <tr>
+      <td>Fonction Logique</td>
+      <td><input id=userFunction size=100 readonly></input></td>
+     </tr> 
+     <tr>
+      <td>Analyse syntaxique</td>
+      <td><textarea name="outputArea" rows=2 cols=76 id="analysis" readonly></textarea></td>
+     </tr>
+    </table>
+
+    <script type="application/dart" src="sio6014_circlo.dart"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>
