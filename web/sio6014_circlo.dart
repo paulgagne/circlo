@@ -24,7 +24,7 @@ List userInput  = new List();
 
 void main() {
   
-  setSyntax(); 
+  setObjects(); 
   setInput();
   buildOutputFunction();
 

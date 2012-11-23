@@ -11,8 +11,8 @@
 
 part of circlo;
 
-setSyntax() {
-  
+setObjects() {
+   
   syntax.putIfAbsent("D1", () => new Door("D1","css/not.png","NOT"));
   syntax.putIfAbsent("D2", () => new Door("D2","css/and.png","AND"));
   syntax.putIfAbsent("D3", () => new Door("D3","css/or.png","OR"));
