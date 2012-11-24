@@ -10,11 +10,11 @@
 
 part of circlo;
 
-class Delimiter {
+class Delimiter extends ObjAttributes { 
   
-  String name  = "";
-  String value = "";
-  
-  Delimiter(this.name, this.value);
+  Delimiter(String name, String value) {
+    this.name  = name;
+    this.value = value;
+  }
   
 }

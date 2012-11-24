@@ -10,11 +10,9 @@
 
 part of circlo;
 
-class Variable extends ObjAttributes {
+class ObjAttributes {
   
-  Variable(String name, String value) {
-    this.name  = name;
-    this.value = value;
-  }
+  String name  = "";
+  String value = "";
   
 }
