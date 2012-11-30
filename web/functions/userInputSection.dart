@@ -13,12 +13,12 @@ part of circlo;
 
 setObjects() {
    
-  syntax.putIfAbsent("D1", () => new Door("D1","css/not.png","NOT"));
-  syntax.putIfAbsent("D2", () => new Door("D2","css/and.png","AND"));
-  syntax.putIfAbsent("D3", () => new Door("D3","css/or.png","OR"));
-  syntax.putIfAbsent("D4", () => new Door("D4","css/nand.png","NAND"));
-  syntax.putIfAbsent("D5", () => new Door("D5","css/nor.png","NOR"));
-  syntax.putIfAbsent("D6", () => new Door("D6","css/xor.png","XOR"));
+  gates.putIfAbsent("D1", () => new Gate("D1","css/not.png","NOT"));
+  gates.putIfAbsent("D2", () => new Gate("D2","css/and.png","AND"));
+  gates.putIfAbsent("D3", () => new Gate("D3","css/or.png","OR"));
+  gates.putIfAbsent("D4", () => new Gate("D4","css/nand.png","NAND"));
+  gates.putIfAbsent("D5", () => new Gate("D5","css/nor.png","NOR"));
+  gates.putIfAbsent("D6", () => new Gate("D6","css/xor.png","XOR"));
   
   variables.putIfAbsent("V0", () => new Variable("V0","E0"));
   variables.putIfAbsent("V1", () => new Variable("V1","E1"));
@@ -39,8 +39,8 @@ setInput() {
   String tableTH = "<tr><th>Entrée</th>";
   String tableTD = "<tr><td></td>";
   
-  for (int i = 1; i <= syntax.length; i++) {
-     Door door = syntax["D${i}"];
+  for (int i = 1; i <= gates.length; i++) {
+     Gate door = gates["D${i}"];
     tableTH = "${tableTH} <th>${door.value}</th>";
     tableTD = "${tableTD} <td><button> <img id=${door.name} src='${door.url}' alt='${door.value}' /> </button></td>";
   };
@@ -74,11 +74,11 @@ setInput() {
 setEvent() {
   
   //Doors
-  syntax.forEach( ( key, door) {
+  gates.forEach( ( key, door) {
     ImageElement doorImage = query('#${door.name}');
     doorImage.on.click.add( (Event e) {
       ImageElement img = e.srcElement;
-      userInput.add(syntax[img.id]);
+      userInput.add(gates[img.id]);
       buildOutputFunction();
     });
   });

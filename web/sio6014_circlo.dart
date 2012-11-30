@@ -12,13 +12,13 @@ library circlo;
 import 'dart:html';
 
 part "model/objAttributes.dart";
-part "model/door.dart";
+part "model/gate.dart";
 part "model/variable.dart";
 part "model/delimiter.dart";
 part "functions/userInputSection.dart";
 part "functions/analysisSection.dart";
 
-Map  syntax     = new Map();
+Map  gates      = new Map();
 Map  variables  = new Map(); 
 Map  delimiters = new Map();
 List userInput  = new List();

@@ -10,11 +10,11 @@
 
 part of circlo;
 
-class Door extends ObjAttributes {
+class Gate extends ObjAttributes {
   
   String url   = "";
   
-  Door(String name, this.url, String value)
+  Gate(String name, this.url, String value)
   {
     this.name  = name;
     this.value = value;
