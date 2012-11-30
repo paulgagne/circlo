@@ -11,6 +11,7 @@ library circlo;
 
 import 'dart:html';
 
+part "model/objAttributes.dart";
 part "model/door.dart";
 part "model/variable.dart";
 part "model/delimiter.dart";
