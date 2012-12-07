@@ -1,40 +1,45 @@
 
+
 /*
  * Auteur     : Belkacem Ouarab, Pierre Gagnon & Paul Gagné
  * No étudiant: 910161950
  * Professeur : Dzenan Ridjanovic
  * Cours      : SIO-6014 APPLICATIONS WEB DES SIO
  *
- * Description: 
+ * Description: Dans ce 'part', nous avons la logique utilisée pour la partie supérieure de la
+ * page HTML 5. Elle contient donc la logique pour la saisie de donnée.   
  */
 
 
 part of circlo;
 
 setObjects() {
-   
-  gates.putIfAbsent("D1", () => new Gate("D1","css/not.png","NOT"));
-  gates.putIfAbsent("D2", () => new Gate("D2","css/and.png","AND"));
-  gates.putIfAbsent("D3", () => new Gate("D3","css/or.png","OR"));
-  gates.putIfAbsent("D4", () => new Gate("D4","css/nand.png","NAND"));
-  gates.putIfAbsent("D5", () => new Gate("D5","css/nor.png","NOR"));
-  gates.putIfAbsent("D6", () => new Gate("D6","css/xor.png","XOR"));
   
-  variables.putIfAbsent("V0", () => new Variable("V0","E0"));
-  variables.putIfAbsent("V1", () => new Variable("V1","E1"));
-  variables.putIfAbsent("V2", () => new Variable("V2","E2"));
-  variables.putIfAbsent("V3", () => new Variable("V3","E3"));
-  variables.putIfAbsent("V4", () => new Variable("V4","E4")); 
+  // Creation des éléments qui seront placés sur la page web 
+   
+  gates.putIfAbsent("D1", () => new Gate("D1","css/not.png","not"));
+  gates.putIfAbsent("D2", () => new Gate("D2","css/and.png","and"));
+  gates.putIfAbsent("D3", () => new Gate("D3","css/or.png","or"));
+  gates.putIfAbsent("D4", () => new Gate("D4","css/nand.png","nand"));
+  gates.putIfAbsent("D5", () => new Gate("D5","css/nor.png","nor"));
+  gates.putIfAbsent("D6", () => new Gate("D6","css/xor.png","xor"));
+  
+  variables.putIfAbsent("V0", () => new Variable("V0","e0"));
+  variables.putIfAbsent("V1", () => new Variable("V1","e1"));
+  variables.putIfAbsent("V2", () => new Variable("V2","e2"));
+  variables.putIfAbsent("V3", () => new Variable("V3","e3"));
+  variables.putIfAbsent("V4", () => new Variable("V4","e4")); 
   
   delimiters.putIfAbsent("DL0", () => new Delimiter("DL0","("));
   delimiters.putIfAbsent("DL1", () => new Delimiter("DL1",")"));
-  delimiters.putIfAbsent("DL2", () => new Delimiter("DL2","#"));
   
 }
 
 setInput() {
   
-  TableElement doorsTab = query("#doorsAndVar");
+//  Ajout dynamique sur la page HTML des bouttons que l'utilisateur peut activer
+  
+  TableElement doorsTab = query("#gatesAndVar");
   
   String tableTH = "<tr><th>Entrée</th>";
   String tableTD = "<tr><td></td>";
@@ -53,7 +58,7 @@ setInput() {
     tableTD = "${tableTD} <tr><td><button type=button id='${variable.name}'> ${variable.value} </button></td></tr>";
   };
   
-  doorsTab.addHTML("${tableTH} ${tableTD}");
+  doorsTab.appendHtml("${tableTH} ${tableTD}");
   
   TableElement delTab = query("#delimiters");
   tableTH = "<tr><th colspan= ${delimiters.length}>Délimiteurs</th>";
@@ -65,7 +70,7 @@ setInput() {
   };
   tableTD = "${tableTD} </tr>";
   
-  delTab.addHTML("${tableTH} ${tableTD}");
+  delTab.appendHtml("${tableTH} ${tableTD}");
   
   setEvent();
   
@@ -73,11 +78,13 @@ setInput() {
 
 setEvent() {
   
-  //Doors
+//  Ajout de la logique des événements sur le boutton
+  
+  //Gates
   gates.forEach( ( key, door) {
     ImageElement doorImage = query('#${door.name}');
     doorImage.on.click.add( (Event e) {
-      ImageElement img = e.srcElement;
+      ImageElement img = e.target;
       userInput.add(gates[img.id]);
       buildOutputFunction();
     });
@@ -110,7 +117,7 @@ setEvent() {
   variables.forEach( ( key, variable) {
     ButtonElement butVar = query('#${variable.name}');
     butVar.on.click.add( (Event e) {
-     ButtonElement buttonVar = e.srcElement;
+     ButtonElement buttonVar = e.target;
      userInput.add(variables[buttonVar.id]);
      buildOutputFunction();
     });
@@ -119,7 +126,7 @@ setEvent() {
   delimiters.forEach( ( key, delimiter) {
     ButtonElement butDl = query('#${delimiter.name}');
     butDl.on.click.add( (Event e) {
-     ButtonElement buttonVar = e.srcElement;
+     ButtonElement buttonVar = e.target;
      userInput.add(delimiters[buttonVar.id]);
      buildOutputFunction();
     });
@@ -128,13 +135,15 @@ setEvent() {
 }
 
 buildOutputFunction() {
+
+//  Constrution du text de la fonction pour l'utilisateur
   
   InputElement userFunction = query('#userFunction');
   
-  String text = "S = ";
-  for (int i = 0; i < userInput.length; i++) {
-    text = "${text} ${userInput[i].value}";
-    
+  String text = "S0 =";
+ for (int i = 0; i < userInput.length; i++)
+  {
+    text = text.concat(' ${userInput[i].value}');
   }
   userFunction.value = text;
    
