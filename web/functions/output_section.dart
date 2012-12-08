@@ -23,7 +23,7 @@ int     noVariables   = 0;
 build_output() {
 
   int     position      = 0;
-  int     bin           = 0;
+  int     bin           = 1;
   int     chg           = 0;
   int     cnt           = 0;
   int     cnt2          = 0;
