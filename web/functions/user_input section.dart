@@ -39,7 +39,7 @@ setInput() {
   
 //  Ajout dynamique sur la page HTML des bouttons que l'utilisateur peut activer
   
-  TableElement doorsTab = query("#gatesAndVar");
+  TableElement gatesTab = query("#gatesAndVar");
   
   String tableTH = "<tr><th>Entrée</th>";
   String tableTD = "<tr><td></td>";
@@ -58,7 +58,7 @@ setInput() {
     tableTD = "${tableTD} <tr><td><button type=button id='${variable.name}'> ${variable.value} </button></td></tr>";
   };
   
-  doorsTab.appendHtml("${tableTH} ${tableTD}");
+  gatesTab.appendHtml("${tableTH} ${tableTD}");
   
   TableElement delTab = query("#delimiters");
   tableTH = "<tr><th colspan= ${delimiters.length}>Délimiteurs</th>";
@@ -98,6 +98,7 @@ setEvent() {
      buildOutputFunction();
      TextAreaElement analysis = query('#analysis');
      analysis.value = "";
+     clear_output(); //Erase output
     }
   });
   
@@ -107,6 +108,7 @@ setEvent() {
     buildOutputFunction();
     TextAreaElement analysis = query('#analysis');
      analysis.value = "";
+     clear_output(); //Erase output
     });
   
   ButtonElement exec = query('#exec');

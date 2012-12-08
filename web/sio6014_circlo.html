@@ -30,18 +30,42 @@
     <button id="exec">Executer</button>
     </p>
     
-   
-    <table>
-     <tr>
-      <td>Fonction Logique</td>
-      <td><input id=userFunction size=100 readonly></input></td>
-     </tr> 
-     <tr>
-      <td>Analyse syntaxique</td>
-      <td><textarea name="outputArea" rows=2 cols=76 id="analysis" readonly></textarea></td>
-     </tr>
-    </table>
-
+    
+    <section>
+     <table>
+      <tr>
+       <td>Fonction Logique</td>
+       <td><input id=userFunction size=100 readonly></input></td>
+      </tr> 
+      <tr>
+       <td>Analyse syntaxique</td>
+       <td><textarea name="outputArea" rows=2 cols=76 id="analysis" readonly></textarea></td>
+      </tr>
+     </table>
+    </section> 
+    
+    <br/>
+    
+    <section>
+     <table>
+      <tr>
+        <th>Table de Vérité</th>
+        <th>Chronogramme</th>
+      </tr> 
+      <tr>
+        <td>
+          <table id="truthtab">
+          </table>
+        </td>  
+        <td>
+          <canvas id="chrono" width="400" height="150">
+            Canvas is not supported in your browser.
+          </canvas>
+        </td> 
+      </tr>
+    </section>
+      
+    
     <script type="application/dart" src="sio6014_circlo.dart"></script>
     <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
   </body>

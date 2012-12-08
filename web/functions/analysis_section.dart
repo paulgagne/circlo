@@ -1,12 +1,12 @@
 
 /*
- * Auteur     : Belkacem Ouarab, Pierre Gagnon & Paul Gagné
+ * Auteur     : Belkacem Ouarab, Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
  * No étudiant: 910161950
  * Professeur : Dzenan Ridjanovic
  * Cours      : SIO-6014 APPLICATIONS WEB DES SIO
  *
- * Description: Dans ce 'part', nous avons la logique utilisée pour l'analyse de la syntax et 
- * l'éxécution de la function   
+ * Description: Dans ce 'part', nous avons la logique utilisée pour l'analyse de la syntax.
+ *  
  */
 
 
@@ -255,7 +255,7 @@ analyse() {
   {
     logical_function_element.add(userInput[i].value);
   }
-  print(logical_function_element);
+
   call_S(); 
   if (logical_function_element.length!=pile.length)
     // Si les langueurs des deux listes sont différentes => Erreur de syntaxe  
@@ -266,6 +266,7 @@ analyse() {
   if (fonction_correcte)
   {
     analysis.value = "L'expression de la fonction logique est correcte.";
+    print_output();
   }
   else
     analysis.value = "L'expression de la fonction logique n'est pas correcte.";
