@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="css/sio6014_circlo.css">
   </head>
   <body>
-  
-    <br/>
-  
+    <a id="top"/>
     <h1>Circlo</h1>
-    
-    <br/>
+
     <h2>Simulation de circuits logiques</h2>
+    <a href="#inst">Comment utiliser ce logiciel.</a> 
+    <br/>
     <br/>
  
     <table id="gatesAndVar">
@@ -63,8 +62,28 @@
           </canvas>
         </td> 
       </tr>
+      </table>
     </section>
       
+    <br/>
+    <br/>
+    <section>
+         <a id="inst">Instructions:</a>
+         <p>Pour utiliser ce logiciel veillez entrer la function en cliquant sur les images des portes logiques, 
+            variables e0, e1, e2, e3 et e4 ou bien les parenthèses.</p>
+         <p>Vous pouvez effacer instruction par instruction ou recommencer du début.</p>
+         <p>Lorsque vous êtes prêt, cliquer sur le boutton exécuter.</p>
+         <p>Le logiciel fait premièrement un vérification de la syntaxe. Si elle est valide, la function sera évaluée 
+            en utilisant une table de vérité et un chronogramme. Si elle n'est pas valide, un message d'erreur sera
+            afficher.</p>
+         <p>Exemples de fonctions:</p>
+         <ul>
+           <li>S0 = e1 and e4</li>
+           <li>S0 = e1 and not e3</li>
+           <li>S0 = e0 and not e3 nor ( e4 nand e2 )</li>
+          </ul> 
+         <a href="#top">Retourner au haut de la page.</a> 
+    </section>
     
     <script type="application/dart" src="sio6014_circlo.dart"></script>
     <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
