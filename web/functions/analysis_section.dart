@@ -1,7 +1,6 @@
-
 /*
- * Auteur     : Belkacem Ouarab, Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
- * No étudiant: 910161950
+ * Auteurs    : Belkacem Ouarab (904 347 654), Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
+ *  
  * Professeur : Dzenan Ridjanovic
  * Cours      : SIO-6014 APPLICATIONS WEB DES SIO
  *
@@ -25,29 +24,6 @@ Soit G' la grammaire factorisée de G�:
 {idf : identificateur d'une entrée ou d'une sortie logique}
   
  */
-
-and(int x, int y)
-{
-  return x & y;
-}
-
-or(int x, int y)
-{ 
-  return x | y;
-}
-
-xor (x,y)
-{
-  return x^y;
-}
-
-not(int x)
-{
-  if (x==1)
-    return 0;
-  else return 1;
-}
-
 
 bool is_idf(p_str)
 /* Cette function retourne la valeur vrai si le lexeme est un identificateur (idf): une variable d'entrée du circuit
@@ -255,7 +231,7 @@ analyse() {
   {
     logical_function_element.add(userInput[i].value);
   }
-
+  
   call_S(); 
   if (logical_function_element.length!=pile.length)
     // Si les langueurs des deux listes sont différentes => Erreur de syntaxe  
@@ -266,7 +242,7 @@ analyse() {
   if (fonction_correcte)
   {
     analysis.value = "L'expression de la fonction logique est correcte.";
-    print_output();
+    exec_funct();
   }
   else
     analysis.value = "L'expression de la fonction logique n'est pas correcte.";

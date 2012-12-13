@@ -1,7 +1,6 @@
-
 /*
- * Auteur     : Belkacem Ouarab, Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
- * No étudiant: 910161950
+ * Auteurs    : Belkacem Ouarab (904 347 654), Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
+ *  
  * Professeur : Dzenan Ridjanovic
  * Cours      : SIO-6014 APPLICATIONS WEB DES SIO
  *
@@ -13,9 +12,8 @@
 
 part of circlo;
 
-Map     fullResult    = new Map();
+Map     fullVarInput    = new Map();
 List    hdr           = new List();
-List    result        = new List();
 
 int     lDigit        = 0;
 int     noVariables   = 0; 
@@ -35,9 +33,9 @@ build_output() {
 
     if (userInput[i].value.substring(0,1) == 'e')
     {
-      fullResult.putIfAbsent(userInput[i].value, () => new List());
+      fullVarInput.putIfAbsent(userInput[i].value, () => new List());
     }
-    noVariables = fullResult.length;
+    noVariables = fullVarInput.length;
   }
   
   lDigit = pow(2, noVariables);
@@ -47,17 +45,9 @@ build_output() {
     bin = ( bin == 0) ? 1 : 0;
   }
   
-  //Temp code to test
-  for ( int i = 0; i < lDigit; i++)
-  {
-    result.add(1);
-  }
-  //
-  
-  
   for ( int i = 0; i <= 4; i ++)
   {
-    if ( fullResult.containsKey('e${i}') )
+    if ( fullVarInput.containsKey('e${i}') )
     {
       cnt++;
       chg = pow(2, noVariables - cnt);
@@ -74,7 +64,7 @@ build_output() {
             cnt2 = 0;
           }
       }
-      fullResult['e${i}'] = eValues;
+      fullVarInput['e${i}'] = eValues;
     }
   }
   
@@ -95,7 +85,7 @@ built_truth_tab() {
   tableTD = '${tableTD}<tr>';  
   for ( int j = 0; j <= 4; j ++)
   {
-    if ( fullResult.containsKey('e${j}') )
+    if ( fullVarInput.containsKey('e${j}') )
     {
       tableTD = '${tableTD} <th class=nobg> e${j} </th>';
     }
@@ -108,9 +98,9 @@ built_truth_tab() {
     tableTD = '${tableTD}<tr>';  
     for ( int j = 0; j <= 4; j ++)
     {
-      if ( fullResult.containsKey('e${j}') )
+      if ( fullVarInput.containsKey('e${j}') )
       {
-        tableTD = '${tableTD} <td> ${fullResult['e${j}'][i]} </td>';
+        tableTD = '${tableTD} <td> ${fullVarInput['e${j}'][i]} </td>';
       }
     }
     tableTD = '${tableTD} <td> ${result[i]} </td>';
@@ -247,9 +237,9 @@ build_chrono() {
     // Variable
     for ( int j = 0; j <= 4; j ++)
     {
-      if ( fullResult.containsKey('e${j}') )
+      if ( fullVarInput.containsKey('e${j}') )
       {
-        graph_output('e${j}', fullResult['e${j}'], ++rank);
+        graph_output('e${j}', fullVarInput['e${j}'], ++rank);
       }
     }
     
@@ -262,7 +252,7 @@ build_chrono() {
 
 clear_output() {
     
-  fullResult    = new Map();
+  fullVarInput    = new Map();
   hdr           = new List();
   result        = new List();
   lDigit        = 0;
@@ -283,8 +273,6 @@ clear_output() {
 
 print_output() {
   
-  clear_output();
-  build_output();
   built_truth_tab();  
   build_chrono();
   

@@ -1,6 +1,6 @@
 /*
- * Auteur     : Belkacem Ouarab, Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
- * No étudiant: 910161950
+ * Auteur     : Belkacem Ouarab (904 347 654), Pierre Gagnon (906 326 359) & Paul Gagné (910 161 950)
+ *  
  * Professeur : Dzenan Ridjanovic
  * Cours      : SIO-6014 APPLICATIONS WEB DES SIO
  *
@@ -16,7 +16,7 @@ part "model/objAttributes.dart";
 part "model/gate.dart";
 part "model/variable.dart";
 part "model/delimiter.dart";
-part "functions/user_input section.dart";
+part "functions/user_input_section.dart";
 part "functions/analysis_section.dart";
 part "functions/evaluation_section.dart";
 part "functions/output_section.dart";
@@ -31,6 +31,8 @@ List   circuit_output            = new List();
 List   logical_gate=['and','or','nand','nor','xor'];
 List   logical_function_element  = new List();
 List   pile                      = new List();
+List    result        = new List();
+
 Map    output_function           = new Map();
 String logical_function          ='';
 bool   fonction_correcte         = true;
